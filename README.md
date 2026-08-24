@@ -1,1 +1,197 @@
 # azure-monitor2
+
+# Azure Linux VM Monitorozás és Riasztás Beállítási Útmutató
+
+Ez a tárhely egy lépésről lépésre követhető útmutatót tartalmaz 4 darab Linux virtuális gép (VM) létrehozásához, metrikáik monitorozásához, loggyűjtés beállításához (KQL), valamint a riasztási rendszerek teszteléséhez Azure környezetben.
+
+## 📌 Tartalomjegyzék
+1. [Előfeltételek](#-előfeltételek)
+2. [Linux VM-ek létrehozása](#1-linux-vm-ek-létrehozása)
+3. [Azure Monitor – Metrikák beállítása](#2-azure-monitor--metrikák-beállítása)
+4. [Data Collection Rule létrehozása és naplók engedélyezése](#3-data-collection-rule-létrehozása-és-naplók-engedélyezése)
+5. [Logok lekérdezése KQL-lel](#4-logok-lekérdezése-kql-lel)
+6. [Riasztások tesztelése és CPU terhelés generálása](#5-riasztások-tesztelése-és-cpu-terhelés-generálása)
+
+---
+
+## ⚙️ Előfeltételek
+* **Előfizetés:** Saját Azure előfizetés
+* **Erőforráscsoport:** Hozz létre egy újat
+* **Régió:** `Sweden Central`
+* **Virtuális gépek nevei:** `vm-linux01`, `vm-linux02`, `vm-linux03`, `vm-linux04`
+
+---
+
+## 🛠️ Végrehajtott lépések
+
+### 1. Linux VM-ek létrehozása
+
+#### 1.1. Alapbeállítások (Basics tab)
+* **Erőforráscsoport:** (A létrehozott erőforráscsoport)
+* **Virtuális gép neve:** `vm-linux01` *(a többi gépnél értelemszerűen módosítandó)*
+* **Kép (Image):** `Ubuntu Server 24.04 LTS - x64 Gen2`
+* **Hitelesítés típusa:** SSH-kulcs
+  * **Kulcspár neve:** `figyelo`
+* **Bejövő port:** SSH (22)
+
+#### 1.2. Lemezek (Disks tab)
+* **OS lemez típusa:** `Standard SSD`
+
+#### 1.3. Figyelés (Monitoring tab)
+##### Riasztások (Alerts):
+* **Ajánlott riasztási szabályok engedélyezése:** `IGEN`
+* **Percentage CPU > 80%:** `IGEN` (Kritikus)
+* **Available Memory Bytes < 0.25GB (250 MB):** `IGEN` (Hiba)
+* **Email:** Automatikusan kitöltve
+
+##### Diagnosztika & Üzemállapot:
+* **Rendszerindítási diagnosztika:** Engedélyezés a felügyelt tárfiókkal (ajánlott)
+* **Vendég operációs rendszer diagnosztikájának engedélyezése:** `NEM`
+* **Alkalmazás állapotfigyelésének engedélyezése:** `NEM`
+
+#### 1.4. Utolsó lépés - Létrehozás
+1. Kattints a **"Felülvizsgálat + létrehozás"** gombra.
+2. Ellenőrizd a beállításokat.
+3. Kattints a **"Létrehozás"** gombra.
+4. Az *SSH kulcs letöltése* ablakban válaszd a **"Privát kulcs letöltése és erőforrás létrehozása"** opciót.
+5. Mentsd a kulcsot biztonságos helyre. A gép pár perc múlva elérhető lesz.
+
+---
+
+### 2. Azure Monitor – Metrikák beállítása
+
+#### 2.1. Azure Monitor megnyitása
+* Keresd fel az **Azure Portal**-t → **Monitor**
+* Válaszd a bal oldali menüben a **Metrikák** opciót.
+
+#### 2.2. Hatókör kiválasztása
+1. Kattints a **"Válasszon hatókört"** gombra.
+2. Pipáld be az alábbiakat:
+   * **Erőforráscsoport:** (A saját erőforráscsoportod)
+   * **Erőforrástípus:** `Virtuális gép`
+   * **Erőforrás:** `vm-linux01` *(a többi VM is hozzáadható később)*
+3. Kattints az **Alkalmaz** gombra.
+
+#### 2.3. CPU metrika hozzáadása
+* **Metrika:** `Percentage CPU`
+* **Összesítés:** `Average` (átlag)
+
+#### 2.4. Memória metrika hozzáadása
+1. Kattints a **"+ Metrika hozzáadása"** opcióra.
+2. **Metrika:** `Available Memory Percentage`
+3. **Összesítés:** `Average` (átlag)
+
+#### 2.5. Dashboard létrehozása és mentése
+1. Kattints a **Rögzítés az irányítópulton** gombra.
+2. Válaszd az **Új megosztott irányítópult** lehetőséget.
+3. **Irányítópult neve:** `Szerverek`
+4. Kattints a **Mentés** gombra.
+
+---
+
+### 3. Data Collection Rule létrehozása és naplók engedélyezése
+
+#### 3.1. Naplók engedélyezése
+* **Azure Portal** → **Virtual machines** → `vm-linux01` *(a többi VM-nél is elvégezhető)*
+* Bal oldali menü → **Figyelés** → **Naplók**
+* Kattints az **Engedélyezés** gombra.
+
+#### 3.2. Data Collection Rule beállítása
+* **Szabály neve:** `vm-logs`
+* **Előfizetés:** Sajátod
+* **Erőforráscsoport:** (A saját erőforráscsoportod)
+* **Régió:** `Sweden Central`
+* **Log Analytics workspace:** `default` (automatikusan kiválasztva)
+* Kattints a **Felülvizsgálat + létrehozás** → **Létrehozás** gombra.
+
+> ⏳ **FONTOS:** Várj 10-15 percet, mire a logok megjelennek a rendszerben!
+
+---
+
+### 4. Logok lekérdezése KQL-lel
+
+A lekérdezések futtatásához navigálj ide: **Azure Portal** → **Monitor** → **Naplók**, majd állítsd be a hatókört a kívánt gépre (pl. `vm-linux01`).
+
+#### 4.1. Alapvető Heartbeat ellenőrzés
+```kql
+Heartbeat
+| where Computer contains "vm-linux"
+| take 10
+```
+*Kattints a **Futtatás** gombra. Ha az adatok megjelennek, a loggyűjtés sikeresen működik!*
+
+#### 4.2. További hasznos KQL lekérdezések
+
+📊 **CPU metrikák (időbeli változás):**
+```kql
+InsightsMetrics
+| where Namespace == "Processor" and Name == "UtilizationPercentage"
+| summarize AvgCPU = avg(Val) by bin(TimeGenerated, 5m)
+| render timechart
+```
+
+🧠 **Memória használat (időbeli változás):**
+```kql
+InsightsMetrics
+| where Namespace == "Memory" and Name == "AvailableMB"
+| summarize AvgMemory = avg(Val) by bin(TimeGenerated, 5m)
+| render timechart
+```
+
+🌐 **Hálózati forgalom:**
+```kql
+InsightsMetrics
+| where Namespace == "Network"
+| where Name in ("ReadBytesPerSecond", "WriteBytesPerSecond")
+| summarize NetworkMBps = sum(Val)/1024/1024 by bin(TimeGenerated, 5m), Name
+| render timechart
+```
+
+🖥️ **VM állapot ellenőrzése:**
+```kql
+Heartbeat
+| summarize LastHeartbeat = max(TimeGenerated) by Computer
+| extend Status = iff(LastHeartbeat > ago(5m), "Online", "Offline")
+| project Computer, LastHeartbeat, Status
+```
+
+---
+
+### 5. Riasztások tesztelése és CPU terhelés generálása
+
+#### 5.1. Linux VM CPU terhelés (`vm-linux01` - `04`)
+Csatlakozz a VM-hez **SSH**-n keresztül, majd futtasd a következő parancsokat:
+
+```bash
+# Csomaglista frissítése és a stress-ng telepítése
+sudo apt update
+sudo apt install -y stress-ng
+
+# CPU terhelés indítása 2 magon, 5 percig (300 másodperc)
+stress-ng --cpu 2 --timeout 300s
+```
+*A riasztás ~5-10 perc alatt aktiválódik, és a beállított e-mail címre értesítés érkezik.*
+
+Ha a folyamatot idő előtt le szeretnéd állítani:
+```bash
+sudo pkill stress-ng
+```
+
+#### 5.2. Windows VM CPU terhelés (`vm-win01`)
+Csatlakozz a géphez **RDP**-n keresztül, majd nyiss egy **PowerShell** ablakot:
+
+**Futtatás:**
+```powershell
+for (i=0; i -lt 4; i++) Start-Job while (true) {} } }
+```
+
+**Leállítás:**
+```powershell
+Get-Job | Stop-Job
+```
+
+#### 5.3. Riasztás ellenőrzése az Azure felületén
+* Navigálj ide: **Azure Portal** → **Monitor** → **Riasztások**
+* Várj 5-10 percet.
+* Ellenőrizd a postafiókodat az e-mailért.
+* A riasztásnak meg kell jelennie az **"Aktivált riasztások"** listájában is.
