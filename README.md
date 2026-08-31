@@ -3,7 +3,7 @@
 # Azure Linux VM Monitorozás és Riasztás Beállítási Útmutató
 
 
-Ebben a ...részben... az Azure Monitor néhány érdekes részét mutatom be. vm-ek monitorozása, loggyűjtés, riasztási rendszerek tesztelése.
+Ebben a ...részben... az `Azure Monitor`-t mutatom be.Vvm-ek létrehozása és monitorozása, loggyűjtés, riasztási rendszerek tesztelése.
 
 
 Mivel is készülünk:
@@ -20,7 +20,7 @@ Mivel is készülünk:
 ## ⚙️ Előfeltételek
 * **Előfizetés:** Saját Azure előfizetésed
 * **Erőforráscsoport:** Hozz létre egy új erőforráscsoportot
-* **Régió:** Én a `Sweden Central` - használom
+* **Régió:** Én a `Sweden Central` -t használom
 * **Virtuális gépek nevei:** `vm-linux01`, `vm-linux02`, `vm-linux03`, `vm-linux04`
 
 ---
