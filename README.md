@@ -2,8 +2,11 @@
 
 # Azure Linux VM Monitorozás és Riasztás Beállítási Útmutató
 
-Ez a tárhely egy lépésről lépésre követhető útmutatót tartalmaz 4 darab Linux virtuális gép (VM) létrehozásához, metrikáik monitorozásához, loggyűjtés beállításához (KQL), valamint a riasztási rendszerek teszteléséhez Azure környezetben.
 
+Ebben a ...részben... az Azure Monitor néhány érdekes részét mutatom be. vm-ek monitorozása, loggyűjtés, riasztási rendszerek tesztelése.
+
+
+Mivel is készülünk:
 ## 📌 Tartalomjegyzék
 1. [Előfeltételek](#-előfeltételek)
 2. [Linux VM-ek létrehozása](#1-linux-vm-ek-létrehozása)
@@ -15,9 +18,9 @@ Ez a tárhely egy lépésről lépésre követhető útmutatót tartalmaz 4 dara
 ---
 
 ## ⚙️ Előfeltételek
-* **Előfizetés:** Saját Azure előfizetés
-* **Erőforráscsoport:** Hozz létre egy újat
-* **Régió:** `Sweden Central`
+* **Előfizetés:** Saját Azure előfizetésed
+* **Erőforráscsoport:** Hozz létre egy új erőforráscsoportot
+* **Régió:** Én a `Sweden Central` - használom
 * **Virtuális gépek nevei:** `vm-linux01`, `vm-linux02`, `vm-linux03`, `vm-linux04`
 
 ---
