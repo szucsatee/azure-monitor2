@@ -30,15 +30,16 @@ Mivel is készülünk:
 ### 1. Linux VM-ek létrehozása
 
 #### 1.1. Alapbeállítások (Basics tab)
-* **Erőforráscsoport:** (A létrehozott erőforráscsoport)
+* **Erőforráscsoport:** (A létrehozott erőforráscsoportod)
 * **Virtuális gép neve:** `vm-linux01` *(a többi gépnél értelemszerűen módosítandó)*
 * **Kép (Image):** `Ubuntu Server 24.04 LTS - x64 Gen2`
+* **Gép típusa: `Standard B1s`
 * **Hitelesítés típusa:** SSH-kulcs
   * **Kulcspár neve:** `figyelo`
 * **Bejövő port:** SSH (22)
 
 #### 1.2. Lemezek (Disks tab)
-* **OS lemez típusa:** `Standard SSD`
+* **OS lemez típusa:** Én  `Standard HDD`-t használtam a költségek miatt
 
 #### 1.3. Figyelés (Monitoring tab)
 ##### Riasztások (Alerts):
