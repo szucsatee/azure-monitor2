@@ -22,7 +22,7 @@ Mivel is készülünk:
 * **Előfizetés:** Saját Azure előfizetésedre lesz szükséged
 * **Erőforráscsoport:** Hozz létre egy új erőforráscsoportot
 * **Régió:** Én a `Sweden Central` -t használom
-* **Virtuális gépek létrehozása:** `vm-linux01`, `vm-linux02`, `vm-linux03`, `vm-linux04`
+* **Virtuális gépek létrehozása:** `vm-linux01`, `vm-linux02`, később létrehozhatunk több gépet is.
 
 ---
 
@@ -33,8 +33,10 @@ Mivel is készülünk:
 #### 1.1. Alapbeállítások (Basics tab)
 * **Erőforráscsoport:** (A létrehozott erőforráscsoportod)
 * **Virtuális gép neve:** `vm-linux01` *(a többi gépnél értelemszerűen módosítandó)*
+* **Régió** `Sweden Central`
+* **Rendelkezésre állási beállítások** `Nem szükségesinfrastruktúráls redundanccia`
 * **Kép (Image):** `Ubuntu Server 24.04 LTS - x64 Gen2`
-* **Gép típusa: `Standard B1s` én a költségek miatt választom ezt.
+* **Gép típusa: `Standard_B1s` én a költségek miatt választom ezt.
 * **Hitelesítés típusa:** SSH-kulcs
   * **Kulcspár neve:** `figyelo`
 * **Bejövő port:** SSH (22)
@@ -42,10 +44,11 @@ Mivel is készülünk:
 #### 1.2. Lemezek (Disks tab)
 * **OS lemez típusa:** Én  `Standard HDD`-t használtam a költségek miatt
 
-#### 1.3. Figyelés (Monitoring tab)
+#### 1.3. Figyelés vagy Monitorozás (Monitoring tab)
 ##### Riasztások (Alerts):
-* **Ajánlott riasztási szabályok engedélyezése:** `IGEN`
+* **Ajánlott riasztási szabályok engedélyezése:** `IGEN` - pipáld ki
 * **Percentage CPU > 80%:** `IGEN` (Kritikus)
+  *** legördülőben válaszd ki z étresítés `súlyosság`-át***
 * **Available Memory Bytes < 0.25GB (250 MB):** `IGEN` (Hiba)
 * **Email:** Automatikusan kitöltve
 
