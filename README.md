@@ -3,7 +3,8 @@
 # Azure Linux VM Monitorozás és Riasztás Beállítási Útmutató
 
 
-Ebben a ...részben... az `Azure Monitor`-t mutatom be.Vvm-ek létrehozása és monitorozása, loggyűjtés, riasztási rendszerek tesztelése.
+Ebben a repositoryban az `Azure Monitor` működését mutatom be.
+Szó esik Vm-ek létrehozásáról és monitorozásáról, a loggyűjtésről, riasztási rendszerek beállításáról és teszteléséről.
 
 
 Mivel is készülünk:
@@ -18,10 +19,10 @@ Mivel is készülünk:
 ---
 
 ## ⚙️ Előfeltételek
-* **Előfizetés:** Saját Azure előfizetésed
+* **Előfizetés:** Saját Azure előfizetésedre lesz szükséged
 * **Erőforráscsoport:** Hozz létre egy új erőforráscsoportot
 * **Régió:** Én a `Sweden Central` -t használom
-* **Virtuális gépek nevei:** `vm-linux01`, `vm-linux02`, `vm-linux03`, `vm-linux04`
+* **Virtuális gépek létrehozása:** `vm-linux01`, `vm-linux02`, `vm-linux03`, `vm-linux04`
 
 ---
 
@@ -33,7 +34,7 @@ Mivel is készülünk:
 * **Erőforráscsoport:** (A létrehozott erőforráscsoportod)
 * **Virtuális gép neve:** `vm-linux01` *(a többi gépnél értelemszerűen módosítandó)*
 * **Kép (Image):** `Ubuntu Server 24.04 LTS - x64 Gen2`
-* **Gép típusa: `Standard B1s`
+* **Gép típusa: `Standard B1s` én a költségek miatt választom ezt.
 * **Hitelesítés típusa:** SSH-kulcs
   * **Kulcspár neve:** `figyelo`
 * **Bejövő port:** SSH (22)
