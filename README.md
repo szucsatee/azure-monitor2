@@ -48,7 +48,7 @@ Mivel is készülünk:
 ##### Riasztások (Alerts):
 * **Ajánlott riasztási szabályok engedélyezése:** `IGEN` - pipáld ki
 * **Percentage CPU > 80%:** `IGEN` (Kritikus)
-*** legördülőben válaszd ki z étresítés `súlyosság`-át***
+** legördülőben válaszd ki z étresítés `súlyosság`-át**
 * **Available Memory Bytes < 0.25GB (250 MB):** `IGEN` (Hiba)
 * **Email:** Automatikusan kitöltve
 
