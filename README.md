@@ -36,7 +36,7 @@ Mivel is készülünk:
 * **Régió** `Sweden Central`
 * **Rendelkezésre állási beállítások** `Nem szükségesinfrastruktúráls redundanccia`
 * **Kép (Image):** `Ubuntu Server 24.04 LTS - x64 Gen2`
-* **Gép típusa: `Standard_B1s` én a költségek miatt választom ezt.
+* Gép típusa: `Standard_B1s` én a költségek miatt választom ezt.
 * **Hitelesítés típusa:** SSH-kulcs
   * **Kulcspár neve:** `figyelo`
 * **Bejövő port:** SSH (22)
@@ -47,10 +47,11 @@ Mivel is készülünk:
 #### 1.3. Figyelés vagy Monitorozás (Monitoring tab)
 ##### Riasztások (Alerts):
 * **Ajánlott riasztási szabályok engedélyezése:** `IGEN` - pipáld ki
-* **Percentage CPU > 80%:** `IGEN` (Kritikus)
-* ** legördülőben** válaszd ki z étresítés `súlyosság`-át
+* **Percentage CPU > 70%:** `IGEN` (Kritikus)
+* **legördülőben** válaszd ki z étresítés `súlyosság`-át
 * **Available Memory Bytes < 0.25GB (250 MB):** `IGEN` (Hiba)
 * **Email:** Automatikusan kitöltve
+* KÉP
 
 ##### Diagnosztika & Üzemállapot:
 * **Rendszerindítási diagnosztika:** Engedélyezés a felügyelt tárfiókkal (ajánlott)
