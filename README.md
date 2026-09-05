@@ -95,10 +95,14 @@ Mivel is készülünk:
 2. Válaszd az **Új megosztott irányítópult** lehetőséget.
 3. **Irányítópult neve:** `Szerverek`
 4. Kattints a **Mentés** gombra.
+5. Itt érjük el az irányítópultot:
+   KÉP
 
 ---
 
-### 3. Data Collection Rule létrehozása és naplók engedélyezése
+### 3. Log Analytics Munkaterületek (Workspaces) és Data Collection Rules (Adatgyűjtési szabály0ok) létrehozása és naplók engedélyezése
+
+# ezt itt lent átnézni
 
 #### 3.1. Naplók engedélyezése
 * **Azure Portal** → **Virtual machines** → `vm-linux01` *(a többi VM-nél is elvégezhető)*
