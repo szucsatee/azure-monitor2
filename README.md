@@ -175,11 +175,17 @@ Heartbeat
 #### 5.1. Linux VM CPU terhelés (`vm-linux01` - `04`)
 Csatlakozz a VM-hez **SSH**-n keresztül, majd futtasd a következő parancsokat:
 
-```bash
-# Csomaglista frissítése és a stress-ng telepítése
-sudo apt update
-sudo apt install -y stress-ng
 
+# Csomaglista frissítése és a stress-ng telepítése
+```bash
+sudo apt update
+```
+
+```bash
+sudo apt install -y stress-ng
+```
+
+```bash
 # CPU terhelés indítása 2 magon, 5 percig (300 másodperc)
 stress-ng --cpu 2 --timeout 300s
 ```
