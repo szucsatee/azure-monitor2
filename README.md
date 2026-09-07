@@ -185,8 +185,9 @@ sudo apt update
 sudo apt install -y stress-ng
 ```
 
-```bash
+
 # CPU terhelés indítása 2 magon, 5 percig (300 másodperc)
+```bash
 stress-ng --cpu 2 --timeout 300s
 ```
 *A riasztás ~5-10 perc alatt aktiválódik, és a beállított e-mail címre értesítés érkezik.*
