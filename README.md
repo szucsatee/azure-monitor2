@@ -51,7 +51,11 @@ Mivel is készülünk:
 * **legördülőben** válaszd ki z étresítés `súlyosság`-át
 * **Available Memory Bytes < 0.25GB (250 MB):** `IGEN` (Hiba)
 * **Email:** Automatikusan kitöltve
-* KÉP
+
+<img width="1906" height="884" alt="image" src="https://github.com/user-attachments/assets/f7ca412e-aea0-43f0-b03f-0faab1f4536b" />
+
+
+
 
 ##### Diagnosztika & Üzemállapot:
 * **Rendszerindítási diagnosztika:** Engedélyezés a felügyelt tárfiókkal (ajánlott)
@@ -96,7 +100,9 @@ Mivel is készülünk:
 3. **Irányítópult neve:** `Szerverek`
 4. Kattints a **Mentés** gombra.
 5. Itt érjük el az irányítópultot:
-   KÉP
+
+   <img width="1703" height="891" alt="image" src="https://github.com/user-attachments/assets/43af0f7a-808c-4f7e-ad6f-0aac737ad14d" />
+
 
 ---
 
@@ -187,10 +193,16 @@ sudo apt install -y stress-ng
 
 
 # CPU terhelés indítása 2 magon, 5 percig (300 másodperc)
+
+A VM-eket az Azureben nyitottam meg a Soros Konzol lehetőséggel.
+
 ```bash
 stress-ng --cpu 2 --timeout 300s
 ```
 *A riasztás ~5-10 perc alatt aktiválódik, és a beállított e-mail címre értesítés érkezik.*
+
+<img width="1731" height="891" alt="image" src="https://github.com/user-attachments/assets/1d53e66f-befd-469e-8c19-d59101c221cc" />
+
 
 Ha a folyamatot idő előtt le szeretnéd állítani:
 ```bash
@@ -209,9 +221,14 @@ for (i=0; i -lt 4; i++) Start-Job while (true) {} } }
 ```powershell
 Get-Job | Stop-Job
 ```
+javaslom, hogy használj CTRL+C és CTRL+V billenytyűkombinációt és várj pár másodpercet.
 
 #### 5.3. Riasztás ellenőrzése az Azure felületén
 * Navigálj ide: **Azure Portal** → **Monitor** → **Riasztások**
 * Várj 5-10 percet.
 * Ellenőrizd a postafiókodat az e-mailért.
-* A riasztásnak meg kell jelennie az **"Aktivált riasztások"** listájában is.
+  <img width="1436" height="352" alt="image" src="https://github.com/user-attachments/assets/ee47e0c1-75da-49c3-bcfb-9d8bc144accd" />
+
+* A riasztásnak meg kell jelennie az **"Aktivált riasztások"** listájában is, valahogy így:
+  <img width="1877" height="819" alt="image" src="https://github.com/user-attachments/assets/f12c1adb-245c-4055-aa58-21677996edf9" />
+
