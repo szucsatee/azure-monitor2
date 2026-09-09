@@ -88,6 +88,8 @@ Mivel is készülünk:
 #### 2.3. CPU metrika hozzáadása
 * **Metrika:** `Percentage CPU`
 * **Összesítés:** `Average` (átlag)
+<img width="1897" height="747" alt="image" src="https://github.com/user-attachments/assets/66036fea-d2e5-4682-a7b8-0e1b4f3270fc" />
+
 
 #### 2.4. Memória metrika hozzáadása
 1. Kattints a **"+ Metrika hozzáadása"** opcióra.
@@ -137,7 +139,10 @@ Heartbeat
 | where Computer contains "vm-linux"
 | take 10
 ```
-*Kattints a **Futtatás** gombra. Ha az adatok megjelennek, a loggyűjtés sikeresen működik!*
+*Kattints a **Futtatás** gombra. Ha az adatok megjelennek, a loggyűjtés sikeresen működik, valahogy így.!*
+
+<img width="1694" height="898" alt="image" src="https://github.com/user-attachments/assets/5d0c1762-61fc-4a94-9348-4b164da46697" />
+
 
 #### 4.2. További hasznos KQL lekérdezések
 
