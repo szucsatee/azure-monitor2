@@ -110,7 +110,8 @@ Mivel is készülünk:
 
 ### 3. Log Analytics Munkaterületek (Workspaces) és Data Collection Rules (Adatgyűjtési szabály0ok) létrehozása és naplók engedélyezése
 
-# ezt itt lent átnézni
+# A Log Analytics workspace(munkaterületek) és Data collection Rules (Adatgyűjtési szabályok beállítását egy külön repositoryban  mutatom meg, melyet itt érsz el:
+# link beszúrás
 
 #### 3.1. Naplók engedélyezése
 * **Azure Portal** → **Virtual machines** → `vm-linux01` *(a többi VM-nél is elvégezhető)*
@@ -125,7 +126,7 @@ Mivel is készülünk:
 * **Log Analytics workspace:** `default` (automatikusan kiválasztva)
 * Kattints a **Felülvizsgálat + létrehozás** → **Létrehozás** gombra.
 
-> ⏳ **FONTOS:** Várj 10-15 percet, mire a logok megjelennek a rendszerben!
+> ⏳ **FONTOS:** Várj 25-35 percet, mire a logok megjelennek a rendszerben!
 
 ---
 
@@ -161,6 +162,8 @@ InsightsMetrics
 | summarize AvgMemory = avg(Val) by bin(TimeGenerated, 5m)
 | render timechart
 ```
+<img width="1878" height="834" alt="image" src="https://github.com/user-attachments/assets/463165de-8844-4a37-9436-2009d9442c9a" />
+
 
 🌐 **Hálózati forgalom:**
 ```kql
