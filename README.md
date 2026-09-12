@@ -1,4 +1,3 @@
-# azure-monitor2
 
 # Azure Linux VM Monitorozás és Riasztás Beállítási Útmutató
 
