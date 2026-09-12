@@ -17,6 +17,8 @@ Mivel is készülünk:
 
 ---
 
+Lássunk neki!
+
 ##  Előfeltételek
 * **Előfizetés:** Saját Azure előfizetésedre lesz szükséged
 * **Erőforráscsoport:** Hozz létre egy új erőforráscsoportot
