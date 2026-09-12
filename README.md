@@ -126,7 +126,7 @@ Mivel is készülünk:
 * **Log Analytics workspace:** `default` (automatikusan kiválasztva)
 * Kattints a **Felülvizsgálat + létrehozás** → **Létrehozás** gombra.
 
-> ⏳ **FONTOS:** Várj 25-35 percet, mire a logok megjelennek a rendszerben!
+>  **FONTOS:** Várj 25-35 percet, mire a logok megjelennek a rendszerben!
 
 ---
 
@@ -147,7 +147,7 @@ Heartbeat
 
 #### 4.2. További hasznos KQL lekérdezések
 
-📊 **CPU metrikák (időbeli változás):**
+ **CPU metrikák (időbeli változás):**
 ```kql
 InsightsMetrics
 | where Namespace == "Processor" and Name == "UtilizationPercentage"
@@ -155,7 +155,7 @@ InsightsMetrics
 | render timechart
 ```
 
-🧠 **Memória használat (időbeli változás):**
+ **Memória használat (időbeli változás):**
 ```kql
 InsightsMetrics
 | where Namespace == "Memory" and Name == "AvailableMB"
@@ -165,7 +165,7 @@ InsightsMetrics
 <img width="1878" height="834" alt="image" src="https://github.com/user-attachments/assets/463165de-8844-4a37-9436-2009d9442c9a" />
 
 
-🌐 **Hálózati forgalom:**
+ **Hálózati forgalom:**
 ```kql
 InsightsMetrics
 | where Namespace == "Network"
@@ -174,7 +174,7 @@ InsightsMetrics
 | render timechart
 ```
 
-🖥️ **VM állapot ellenőrzése:**
+ **VM állapot ellenőrzése:**
 ```kql
 Heartbeat
 | summarize LastHeartbeat = max(TimeGenerated) by Computer
