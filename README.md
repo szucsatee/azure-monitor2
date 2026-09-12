@@ -8,7 +8,7 @@ Szó esik Vm-ek létrehozásáról és monitorozásáról, a loggyűjtésről, r
 
 
 Mivel is készülünk:
-## 📌 Tartalomjegyzék
+##  Tartalomjegyzék
 1. [Előfeltételek](#-előfeltételek)
 2. [Linux VM-ek létrehozása](#1-linux-vm-ek-létrehozása)
 3. [Azure Monitor – Metrikák beállítása](#2-azure-monitor--metrikák-beállítása)
@@ -18,7 +18,7 @@ Mivel is készülünk:
 
 ---
 
-## ⚙️ Előfeltételek
+##  Előfeltételek
 * **Előfizetés:** Saját Azure előfizetésedre lesz szükséged
 * **Erőforráscsoport:** Hozz létre egy új erőforráscsoportot
 * **Régió:** Én a `Sweden Central` -t használom
@@ -26,7 +26,7 @@ Mivel is készülünk:
 
 ---
 
-## 🛠️ Végrehajtott lépések
+##  Végrehajtott lépések
 
 ### 1. Linux VM-ek létrehozása
 
@@ -110,8 +110,9 @@ Mivel is készülünk:
 
 ### 3. Log Analytics Munkaterületek (Workspaces) és Data Collection Rules (Adatgyűjtési szabály0ok) létrehozása és naplók engedélyezése
 
-# A Log Analytics workspace(munkaterületek) és Data collection Rules (Adatgyűjtési szabályok beállítását egy külön repositoryban  mutatom meg, melyet itt érsz el:
-# link beszúrás
+#### A Log Analytics workspace(munkaterületek) és Data collection Rules (Adatgyűjtési szabályok beállításában nagy segítségemre volt ez:
+[VM naplózás lelke: Log Analytics és Data Collection Rules](https://cloudmentor.hu/vm-naplozas-lelke-log-analytics-es-data-collection-rules/)*
+
 
 #### 3.1. Naplók engedélyezése
 * **Azure Portal** → **Virtual machines** → `vm-linux01` *(a többi VM-nél is elvégezhető)*
@@ -240,3 +241,5 @@ javaslom, hogy használj CTRL+C és CTRL+V billenytyűkombinációt és várj p�
 * A riasztásnak meg kell jelennie az **"Aktivált riasztások"** listájában is, valahogy így:
   <img width="1877" height="819" alt="image" src="https://github.com/user-attachments/assets/f12c1adb-245c-4055-aa58-21677996edf9" />
 
+
+*Forrás: Kiss Tibor - cloudmentor.hu - köszönöm Tibornak
