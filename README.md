@@ -38,6 +38,7 @@ Lássunk neki!
 * **Rendelkezésre állási beállítások** `Nem szükségesinfrastruktúráls redundanccia`
 * **Kép (Image):** `Ubuntu Server 24.04 LTS - x64 Gen2`
 * Gép típusa: `Standard_B1s` én a költségek miatt választom ezt.
+* *1 magos processzor, erre később figyelj*
 * **Hitelesítés típusa:** SSH-kulcs
   * **Kulcspár neve:** `figyelo`
 * **Bejövő port:** SSH (22)
