@@ -73,13 +73,13 @@ Mivel is készülünk:
 ### 2. Azure Monitor – Metrikák beállítása
 
 #### 2.1. Azure Monitor megnyitása
-* Keresd fel az **Azure Portal**-t → **Monitor**
-* Válaszd a bal oldali menüben a **Metrikák** opciót.
+* Menj az **Azure Portal** → **Monitor** felületre.
+* Válaszd a bal oldali menüben a **Metrikák** lehetőséget.
 
 #### 2.2. Hatókör kiválasztása
 1. Kattints a **"Válasszon hatókört"** gombra.
 2. Pipáld be az alábbiakat:
-   * **Erőforráscsoport:** (A saját erőforráscsoportod)
+   * **Erőforráscsoport:** (A korábban létrehozott erőforráscsoportod.)
    * **Erőforrástípus:** `Virtuális gép`
    * **Erőforrás:** `vm-linux01` *(a többi VM is hozzáadható később)*
 3. Kattints az **Alkalmaz** gombra.
@@ -114,14 +114,14 @@ Mivel is készülünk:
 
 
 #### 3.1. Naplók engedélyezése
-* **Azure Portal** → **Virtual machines** → `vm-linux01` *(a többi VM-nél is elvégezhető)*
+* **Azure Portal** → **Virtuális gépek** → `vm-linux01` *(a többi VM-nél is elvégezhető)*
 * Bal oldali menü → **Figyelés** → **Naplók**
 * Kattints az **Engedélyezés** gombra.
 
 #### 3.2. Data Collection Rule beállítása
-* **Szabály neve:** `vm-logs`
-* **Előfizetés:** Sajátod
-* **Erőforráscsoport:** (A saját erőforráscsoportod)
+* **Szabály neve legyen példáu:** `vm-logs`
+* **Előfizetés:** Saját előfizetésed.
+* **Erőforráscsoport:** (Ismét a korábban létrehozott erőforráscsoportod)
 * **Régió:** `Sweden Central`
 * **Log Analytics workspace:** `default` (automatikusan kiválasztva)
 * Kattints a **Felülvizsgálat + létrehozás** → **Létrehozás** gombra.
@@ -132,7 +132,7 @@ Mivel is készülünk:
 
 ### 4. Logok lekérdezése KQL-lel
 
-A lekérdezések futtatásához navigálj ide: **Azure Portal** → **Monitor** → **Naplók**, majd állítsd be a hatókört a kívánt gépre (pl. `vm-linux01`).
+A lekérdezések futtatásához menj ide: **Azure Portal** → **Monitor** → **Naplók**, majd állítsd be a hatókört a kívánt gépekre, vm-ekre. (pl. `vm-linux01`).
 
 #### 4.1. Alapvető Heartbeat ellenőrzés
 ```kql
@@ -145,7 +145,7 @@ Heartbeat
 <img width="1694" height="898" alt="image" src="https://github.com/user-attachments/assets/5d0c1762-61fc-4a94-9348-4b164da46697" />
 
 
-#### 4.2. További hasznos KQL lekérdezések
+#### 4.2. Néhány hasznos KQL lekérdezés:
 
  **CPU metrikák (időbeli változás):**
 ```kql
@@ -207,6 +207,7 @@ A VM-eket az Azureben nyitottam meg a Soros Konzol lehetőséggel.
 ```bash
 stress-ng --cpu 2 --timeout 300s
 ```
+*cpu 2 --2 magot terhel, ezzel erősebb, vagy gyengébb gép esetén tudsz módosítani, ugyanígy a 300s ami lehet 5m is akár vagy több és kevesebb is.*
 *A riasztás ~5-10 perc alatt aktiválódik, és a beállított e-mail címre értesítés érkezik.*
 
 <img width="1731" height="891" alt="image" src="https://github.com/user-attachments/assets/1d53e66f-befd-469e-8c19-d59101c221cc" />
@@ -229,10 +230,11 @@ for (i=0; i -lt 4; i++) Start-Job while (true) {} } }
 ```powershell
 Get-Job | Stop-Job
 ```
-javaslom, hogy használj CTRL+C és CTRL+V billenytyűkombinációt és várj pár másodpercet.
+*javaslom, hogy használj CTRL+C és CTRL+V billenytyűkombinációt és várj pár másodpercet*
+*a terhelés alatt nagyon belassul a rendszer*
 
 #### 5.3. Riasztás ellenőrzése az Azure felületén
-* Navigálj ide: **Azure Portal** → **Monitor** → **Riasztások**
+* Menj ide: **Azure Portal** → **Monitor** → **Riasztások**
 * Várj 5-10 percet.
 * Ellenőrizd a postafiókodat az e-mailért.
   <img width="1436" height="352" alt="image" src="https://github.com/user-attachments/assets/ee47e0c1-75da-49c3-bcfb-9d8bc144accd" />
