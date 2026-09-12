@@ -187,7 +187,7 @@ Heartbeat
 ### 5. Riasztások tesztelése és CPU terhelés generálása
 
 #### 5.1. Linux VM CPU terhelés (`vm-linux01` - `04`)
-Csatlakozz a VM-hez **SSH**-n keresztül, majd futtasd a következő parancsokat:
+Csatlakozz a VM-hez **SSH**-n keresztül, majd futtasd a következő parancsokat, én a VM-eket az Azureben nyitottam meg a Soros Konzol lehetőséggel.
 
 
 # Csomaglista frissítése és a stress-ng telepítése
@@ -218,7 +218,7 @@ sudo pkill stress-ng
 ```
 
 #### 5.2. Windows VM CPU terhelés (`vm-win01`)
-Csatlakozz a géphez **RDP**-n keresztül, majd nyiss egy **PowerShell** ablakot:
+Csatlakozz a géphez **RDP**-n keresztül, majd nyiss egy **PowerShell** ablakot, ém a VM-eket az Azureben nyitottam meg a Soros Konzol lehetőséggel.
 
 **Futtatás:**
 ```powershell
